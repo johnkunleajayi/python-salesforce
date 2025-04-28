@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salesforce Data Viewer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/accounts">Accounts</a>
+    <a href="/contacts">Contacts</a>
+    <a href="/opportunities">Opportunities</a>
+    <a href="/leads">Leads</a>
+    <a href="/cases">Cases</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <img src="{{ url_for('static', filename='SoftCode.png') }}" alt="SoftCode Logo" />
+      <div class="header-text">
+        <h1>Salesforce Data Viewer</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Salesforce Data Viewer</h2>
+    </div>
+  </div>
+</body>
+
+</html>

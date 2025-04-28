@@ -1,0 +1,62 @@
+<!-- templates/leads.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salesforce Leads</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/accounts">Accounts</a>
+    <a href="/contacts">Contacts</a>
+    <a href="/opportunities">Opportunities</a>
+    <a href="/leads" class="active">Leads</a>
+    <a href="/cases">Cases</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <img src="{{ url_for('static', filename='SoftCode.png') }}" alt="SoftCode Logo" />
+      <div class="header-text">
+        <h1>Salesforce Data Viewer</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Salesforce Leads</h2>
+
+      {% if leads %}
+        <table class="accounts-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for lead in leads %}
+              <tr>
+                <td>{{ lead['Id'] }}</td>
+                <td>{{ lead['FirstName'] }} {{ lead['LastName'] }}</td>
+                <td>{{ lead['Company'] }}</td>
+                <td>{{ lead['Status'] }}</td>
+                <td>{{ lead.get('Email', 'N/A') }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No leads found.</p>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+</html>

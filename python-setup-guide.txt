@@ -1,0 +1,97 @@
+
+Install Python (if not installed yet)
+Go to https://www.python.org/downloads
+Download the latest version for Windows.
+
+IMPORTANT: During installation, check the box that says “Add Python to PATH” before clicking Install.
+
+
+What to run in the Terminal for Python + Salesforce Integration:
+
+1. pip install simple-salesforce
+
+2. B. Get Your Salesforce Credentials
+You’ll need the following from Salesforce (from a Developer Org or Sandbox):
+
+Parameter	
+Username: youremail@myorg.com.dev
+Password: YourPassword123
+Security Token: 
+Domain: 'test' 
+
+3. Build a Web Page with Python (using Flask)
+Install Flask: pip install Flask
+
+
+4. Run the Flask App
+Now, go to your terminal and run the Flask app:
+
+python app.py
+
+
+5. Open your web browser and navigate to http://127.0.0.1:5000/, and you should see your app with Salesforce data displayed on the page.
+
+
+Python Anywhere:
+
+1. Upload Your Project Files Directly (If Not Using GitHub)
+If you’re not using GitHub, you can upload your files directly from VS Code to PythonAnywhere:
+
+Go to the Files tab in PythonAnywhere.
+
+Click the Upload a file button to upload the files from your local project (flask_app.py, templates/, static/, etc.) to the appropriate directory (/home/softcodeDev/mysite/).
+
+2. Install Dependencies on PythonAnywhere
+(e.g., Flask, simple_salesforce), you’ll need to install them in PythonAnywhere’s virtual environment.
+
+3. Open a Bash Console in PythonAnywhere.
+
+Navigate to your project directory:
+
+cd /home/softcodeDev/mysite
+
+Install your app’s dependencies (make sure you have a requirements.txt file in your project, or you can create it with:
+
+Install the dependencies:
+
+pip install -r requirements.txt
+
+pip install simple_salesforce
+
+
+4. Configure the Web App. Now, let’s link the app to the web interface on PythonAnywhere.
+
+In the PythonAnywhere Dashboard, go to the Web tab.
+
+
+In the WSGI configuration file section, click to edit the file (it should open in the editor).
+
+Edit the WSGI configuration file to point to your flask_app.py:
+
+import sys
+import os
+
+# Add your project directory to the sys.path
+project_home = '/home/softcodeDev/mysite'
+if project_home not in sys.path:
+    sys.path.insert(0, project_home)
+
+# Set the FLASK_APP environment variable
+os.environ['FLASK_APP'] = 'flask_app.py'
+
+# Import the Flask app and assign to 'application'
+from flask_app import app as application
+
+
+5. Restart the Web App
+After saving the changes to the WSGI configuration file:
+
+Go back to the Web tab on PythonAnywhere.
+
+Click the Reload button to restart your app.
+
+6. Test Your App
+Your Flask app should now be live at the URL E.g: https://softcodedev.pythonanywhere.com/. You can test it by navigating to this URL in your browser.
+
+If everything is set up correctly, your app should be deployed and running smoothly!
+

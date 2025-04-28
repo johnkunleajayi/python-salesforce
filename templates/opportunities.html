@@ -1,0 +1,62 @@
+<!-- templates/opportunities.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salesforce Opportunities</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/accounts">Accounts</a>
+    <a href="/contacts">Contacts</a>
+    <a href="/opportunities" class="active">Opportunities</a>
+    <a href="/leads">Leads</a>
+    <a href="/cases">Cases</a>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <img src="{{ url_for('static', filename='SoftCode.png') }}" alt="SoftCode Logo" />
+      <div class="header-text">
+        <h1>Salesforce Data Viewer</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Salesforce Opportunities</h2>
+
+      {% if opportunities %}
+        <table class="accounts-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Stage</th>
+              <th>Close Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for opp in opportunities %}
+              <tr>
+                <td>{{ opp['Id'] }}</td>
+                <td>{{ opp['Name'] }}</td>
+                <td>{{ opp['StageName'] }}</td>
+                <td>{{ opp['CloseDate'] }}</td>
+                <td>{{ opp.get('Amount', 'N/A') }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No opportunities found.</p>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+</html>
