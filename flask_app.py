@@ -4,9 +4,9 @@ from simple_salesforce import Salesforce
 app = Flask(__name__)
 
 # Salesforce credentials
-username = 'python@softcode.com'
-password = 'April19th$'
-security_token = 'p2FwM4vSnqffzG2qh9LPuthSd'
+username = 'email'
+password = 'password'
+security_token = 'token'
 domain = 'login'
 
 # Create Salesforce connection
